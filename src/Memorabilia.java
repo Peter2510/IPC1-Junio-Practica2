@@ -21,6 +21,7 @@ public class Memorabilia{
 	int idCliente;
 	int telefonoCliente;
 	int contadorCliente =0;
+	int contadorPelicula=0;
 	boolean tienePeliculaPrestada;
 
 	//variables globales de las peliculas
@@ -28,7 +29,7 @@ public class Memorabilia{
 	int idPelicula;
 	int anioPelicula;
 	String categoria;
-	boolean disponible;
+	boolean peliculaDisponible;
 
 	//variables globales peliculas prestadas
 	int idPeliculaPrestada;
@@ -46,6 +47,17 @@ public class Memorabilia{
 	// Matriz de telefono cliente
 	int matrizTelefonoCliente[] = new int[30];
 
+	//Matriz nombre de la pelicula
+	String matrizNombrePelicula[] = new String[30];
+
+	//Matriz id pelicula
+	int matrizIdPelicula[] = new int[30];
+
+	//matriz anio pelicula
+	int matrizAnioPelicula[] = new int[30];
+
+	//matriz categoria pelicula
+	String matrizCategoriaPelicula[] = new String[30];
 
 
 	//constructor de la practica
@@ -120,7 +132,7 @@ public class Memorabilia{
    		//Opcion 4 seleccionada
    		if (opcion==4) {
 
-   		System.out.println("4. Registrar nueva pelicula ");
+   		registrarPelicula();
 
    		}
 
@@ -142,30 +154,7 @@ public class Memorabilia{
    		//Opcion 7 seleccionada
    		if (opcion==7) {
 
-   			if (contadorCliente==0) {
-   				System.out.print("\nAun no hay clientes registrados\n");
-   			}
-
-   			else{
-
-   				String prestamo;
-
-   			for (int i =0 ; i < contadorCliente ; i++ ) {
-
-   				if (tienePeliculaPrestada==false) {
-   					 prestamo = "no";
-   				}
-
-   				else{
-   					 prestamo = "si";
-   				}
-   				System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-   				System.out.println("\nid: " + matrizIdCliente[i]+", Nombre del Cliente: "+ matrizNombreCliente[i] + ", telefono: " + matrizTelefonoCliente[i] + ", Posee peliculas de la tienda: "+ prestamo );
-   			}
-
-   		System.out.println();
-
-   		}
+   			mostrarClientes();
 
    			}
    			
@@ -204,7 +193,12 @@ public class Memorabilia{
 		tienePeliculaPrestada = false;
 		contadorCliente++;
 
-		/* if (contadorCliente==0) {
+		
+
+	
+      }
+
+      /* if (contadorCliente==0) {
 			primerId=idCliente;
 
 			//Ingresar el telefono del cliente
@@ -244,27 +238,74 @@ public class Memorabilia{
 
 					//Pelicula prestada
 					tienePeliculaPrestada = false;
-					contadorCliente++;
-
-				
-
-				
-				
-				
-				
+					contadorCliente++;	
 			
 		} */
 
+
+		public void mostrarClientes(){
+
+			if (contadorCliente==0) {
+   				System.out.print("\nAun no hay clientes registrados\n");
+   			}
+
+   			else{
+
+   				String prestamo;
+
+   			for (int i =0 ; i < contadorCliente ; i++ ) {
+
+   				if (tienePeliculaPrestada==false) {
+   					 prestamo = "no";
+   				}
+
+   				else{
+   					 prestamo = "si";
+   				}
+   				System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+   				System.out.println("\nid: " + matrizIdCliente[i]+", Nombre del Cliente: "+ matrizNombreCliente[i] + ", telefono: " + matrizTelefonoCliente[i] + ", Posee peliculas de la tienda: "+ prestamo );
+   			}
+
+   		System.out.println();
+
+   		}
+
+		}
+
+		// Registrar nueva pelicua
+   		public void registrarPelicula(){
+
+   		System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+   		System.out.println("\nBienvenido al registro de peliculas");
+
+   		//Ingresar nonmbre de la pelicula
+      	System.out.print("\nIngrese el nombre de la pelicula:  ");
+        nombrePelicula = scanner.nextLine();
+        nombrePelicula = scanner.nextLine();
+		matrizNombrePelicula[contadorPelicula]=nombrePelicula;
 		
-		
+		//Ingresar el id del cliente
+		System.out.print("\nIngrese el id de la pelicula: ");
+        idPelicula = scanner.nextInt();
+		matrizIdPelicula[contadorPelicula]=idPelicula;
 
-      }
+		System.out.print("\nIngrese el año de estreno de la pelicula: ");
+        anioPelicula = scanner.nextInt();
+		matrizAnioPelicula[contadorPelicula]=anioPelicula;
 
-    
+		System.out.print("\nIngrese la categoria de la pelicula:  ");
+        categoria = scanner.nextLine();
+        categoria = scanner.nextLine();
+		matrizCategoriaPelicula[contadorPelicula]= categoria ;
+
+
+
+		//Pelicula prestada
+		peliculaDisponible = true;
+		contadorPelicula++;
+	}
+}    
 
 
 
 
-
-   
-}
