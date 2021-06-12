@@ -47,8 +47,13 @@ public class Memorabilia{
    }
 
    public void mostrarMenu(){
+	 	
+	int opcion =0;
 
-   	System.out.println("\nSelecciona una opcion: ");
+	//Mostrar el menu mientras no se ingrese la opcion de salir, es decir, el numero 9
+	do{
+
+	System.out.println("\nSelecciona una opcion: ");
    	System.out.println("\n1. Prestamo de peliculas ");
    	System.out.println("2. Devolucion de peliculas ");
    	System.out.println("3. Mostrar datos de las peliculas ");
@@ -58,8 +63,20 @@ public class Memorabilia{
    	System.out.println("7. Mostrar clientes registrados:");
    	System.out.println("8. Reportes");
    	System.out.println("9. Salir");
-   	System.out.println("Ingresa la opcion a realizar: ");
-   	int opcion = sc.nextInt();
+   	System.out.println("\nIngresa la opcion a realizar: ");
+   	opcion = sc.nextInt();
+
+
+	}
+
+   	while (opcion!=9); {
+   		
+   	// si se ingresa el numero 9, termina el programa
+	System.out.println("\nVuelve pronto ");
+   
+   	}
+
+   	
 
    }
 
