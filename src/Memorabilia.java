@@ -17,6 +17,7 @@ public class Memorabilia{
 	// variables globales  de los clientes
 
 	String nombreCliente;
+	int primerId =0;
 	int idCliente;
 	int telefonoCliente;
 	int contadorCliente =0;
@@ -76,6 +77,8 @@ public class Memorabilia{
    	System.out.println("7. Mostrar clientes registrados");
    	System.out.println("8. Reportes");
    	System.out.println("9. Salir");
+   	System.out.println(primerId);
+
    	System.out.print("\nIngresa la opcion a realizar: ");
    	opcion = scanner.nextInt();
 
@@ -193,7 +196,6 @@ public class Memorabilia{
         idCliente = scanner.nextInt();
 		matrizIdCliente[contadorCliente]=idCliente;
 
-		//Ingresar el telefono del cliente
 		System.out.print("\nIngrese el telefono del cliente: ");
         telefonoCliente = scanner.nextInt();
 		matrizTelefonoCliente[contadorCliente]=telefonoCliente;
@@ -202,7 +204,65 @@ public class Memorabilia{
 		tienePeliculaPrestada = false;
 		contadorCliente++;
 
+		/* if (contadorCliente==0) {
+			primerId=idCliente;
+
+			//Ingresar el telefono del cliente
+					System.out.print("\nIngrese el telefono del cliente: ");
+        			telefonoCliente = scanner.nextInt();
+					matrizTelefonoCliente[contadorCliente]=telefonoCliente;
+
+					//Pelicula prestada
+					tienePeliculaPrestada = false;
+					contadorCliente++;
+		}
+
+		else{
+			for (int i = 0 ; i < contadorCliente ; i++ ) {
+
+				if (matrizIdCliente[i]!=(primerId)) {
+					System.out.println("Ingresa un id distinto");
+					registrarClientes();
+				}
+
+				else{
+					System.out.print("\nENTRE AL ELSEIngrese el telefono del cliente: ");
+        			telefonoCliente = scanner.nextInt();
+					matrizTelefonoCliente[contadorCliente]=telefonoCliente;
+
+					//Pelicula prestada
+					tienePeliculaPrestada = false;
+
+				}
+			}
+
+				
+
+					System.out.print("\nENTRE AL ELSEIngrese el telefono del cliente: ");
+        			telefonoCliente = scanner.nextInt();
+					matrizTelefonoCliente[contadorCliente]=telefonoCliente;
+
+					//Pelicula prestada
+					tienePeliculaPrestada = false;
+					contadorCliente++;
+
+				
+
+				
+				
+				
+				
+			
+		} */
+
+		
+		
+
       }
+
+    
+
+
 
 
 
