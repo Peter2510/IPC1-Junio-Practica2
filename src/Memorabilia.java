@@ -113,7 +113,7 @@ public class Memorabilia{
    	//Opcion 1 seleccionada
    		if (opcion==1) {
 
-   		System.out.println("\n1. Prestamo de peliculas ");
+   		prestamoPeliculas();
    		}
 
    	//Opcion 2 seleccionada
@@ -330,6 +330,47 @@ public class Memorabilia{
    		System.out.println();
 
    		}
+	}
+
+	public void prestamoPeliculas(){
+		int idPrestar=0;
+		mostrarPeliculas();
+		if (contadorPelicula>0) {
+   				System.out.println("\nSolo puedes prestar una pelicula a la vez");
+   				
+   				System.out.println("\nIngresa el id de la pelicula que deseas buscar: ");
+   				idPrestar = scanner.nextInt();
+   				buscarIdPelicula(idPrestar);
+
+
+   			}
+		
+	}
+
+		public void buscarIdPelicula(int buscar){
+			
+			//System.out.println("\nIngresa el id de la pelicula que deseas buscar: ");
+			//buscar = scanner.nextInt();
+			int contador=0;
+			while ((contador < matrizIdPelicula[contadorPelicula]) &&(matrizIdPelicula[contadorPelicula]) !=buscar) {
+				contador++;
+					
+			}
+
+			if (contador != matrizIdCliente[contadorPelicula]) {
+
+				System.out.println("Lo encontre");
+				System.out.println("Se encontro el numero ingresado");
+
+			}
+
+				else{
+
+					System.out.println("No lo encontre");	
+					System.out.println("No se encontro el numero ingresado" );	
+				}
+
+
 	}
 
 
