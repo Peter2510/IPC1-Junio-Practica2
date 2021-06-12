@@ -125,7 +125,7 @@ public class Memorabilia{
    	//Opcion 3 seleccionada
    		if (opcion==3) {
 
-   		System.out.println("3. Mostrar datos de las peliculas ");
+   		mostrarPeliculas();
    		
    		}
 
@@ -304,6 +304,35 @@ public class Memorabilia{
 		peliculaDisponible = true;
 		contadorPelicula++;
 	}
+
+	public void mostrarPeliculas(){
+		if (contadorPelicula==0) {
+   				System.out.print("\nAun no hay peliculas registradas\n");
+   			}
+
+   			else{
+
+   				String enPrestamo;
+
+   			for (int i =0 ; i < contadorPelicula ; i++ ) {
+
+   				if (peliculaDisponible==true) {
+   					 enPrestamo = "si";
+   				}
+
+   				else{
+   					 enPrestamo = "no";
+   				}
+   				System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+   				System.out.println("\nid: " + matrizIdPelicula[i] +", Nombre de la pelicula: "+ matrizNombrePelicula[i] + ", año de estreno: " + matrizAnioPelicula[i] + ", Categoria: "+ matrizCategoriaPelicula[i]+ ", disponible: " + enPrestamo );
+   			}
+
+   		System.out.println();
+
+   		}
+	}
+
+
 }    
 
 
