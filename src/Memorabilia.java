@@ -36,6 +36,7 @@ public class Memorabilia{
 	int contadorDocumental =0;
 	int	contadorComedia =0;
 	int	contadorRomantica =0;
+	boolean idPeliculaRepetida = false;
 
 	//variables globales peliculas prestadas
 	int idPeliculaPrestada;
@@ -263,6 +264,8 @@ public class Memorabilia{
 		public void mostrarClientes(){
 
 			if (contadorCliente==0) {
+				
+
    				System.out.print("\nAun no hay clientes registrados\n");
    			}
 
@@ -301,13 +304,66 @@ public class Memorabilia{
         nombrePelicula = scanner.nextLine();
         nombrePelicula = scanner.nextLine();
 		matrizNombrePelicula[contadorPelicula]=nombrePelicula;
+
+		System.out.print("\nIngrese el año de estreno de la pelicula: ");
+        anioPelicula = scanner.nextInt();
+		matrizAnioPelicula[contadorPelicula]=anioPelicula;
+
+
+		System.out.print("\nIngrese la categoria de la pelicula:  ");
+		System.out.print("\nCategorias disponibles:  ");
+		System.out.print("\n1. Accion");
+		System.out.print("\n2. Drama");
+		System.out.print("\n3. Documental");
+		System.out.print("\n4. Comedia");
+		System.out.print("\n5. Romantica");
+		System.out.print("\nIngresa el numero de la categoria: ");
+		int opcion = scanner.nextInt();
+
+		if (opcion==1) {
+
+			contadorAccion++;	
+		}
+
+		if (opcion==2) {
+			
+			contadorDrama++;
+		}
+
+		if (opcion==3) {
+			
+			contadorDocumental++;
+		}
+
+		if (opcion==4) {
+			
+			contadorComedia++;
+		}
+
+		if (opcion==5) {
+
+			contadorRomantica++;
+			
+		}
+
+        categoria = scanner.nextLine();
+        
+		matrizCategoriaPelicula[contadorPelicula]= categoria ;
+
+		matrizPeliculaDisponible[contadorPelicula] = true;
 		
 		//Ingresar el id del cliente
-		System.out.print("\nIngrese el id de la pelicula: ");
-        idPelicula = scanner.nextInt();
+	
 		matrizIdPelicula[contadorPelicula]=idPelicula;
 
-		comparar();
+
+		// COMPARAR ID
+		
+		buscarNumero(matrizIdPelicula);
+		
+
+
+	
 		
 	
 
@@ -356,39 +412,13 @@ public class Memorabilia{
    				
    				System.out.println("\nIngresa el id de la pelicula que deseas : ");
    				idPrestar = scanner.nextInt();
-   				buscarIdPelicula(idPrestar);
-
+   				
 
    			}
 		
 	}
 
-		public void buscarIdPelicula(int buscar){
-			
-			//System.out.println("\nIngresa el id de la pelicula que deseas buscar: ");
-			//buscar = scanner.nextInt();
-			int contador=0;
-			while ((contador < matrizIdPelicula[contadorPelicula]) &&(matrizIdPelicula[contador]) !=buscar) {
-				contador++;
-					
-			}
-
-			if (contador != matrizIdPelicula[contadorPelicula]) {
-
-				System.out.println("Lo encontre");
-				System.out.println("Se encontro el numero ingresado");
-
-			}
-
-				else{
-
-					System.out.println("No lo encontre");	
-					System.out.println("No se encontro el numero ingresado" );	
-				}
-
-
-	}
-
+	
 	public void codigoPeliculaAlquilar(){
 		System.out.println("Ingrese la pelicula a alquilar:");
 		int codigo = scanner.nextInt();
@@ -412,68 +442,72 @@ public class Memorabilia{
 
 	}
 
-	public void comparar(){
-
-	
-
-		System.out.print("\nIngrese el año de estreno de la pelicula: ");
-        anioPelicula = scanner.nextInt();
-		matrizAnioPelicula[contadorPelicula]=anioPelicula;
-
-		System.out.print("\nIngrese la categoria de la pelicula:  ");
-		System.out.print("\nCategorias disponibles:  ");
-		System.out.print("\n1. Accion");
-		System.out.print("\n2. Drama");
-		System.out.print("\n3. Documental");
-		System.out.print("\n4. Comedia");
-		System.out.print("\n5. Romantica");
-		System.out.print("\nIngresa el numero de la categoria: ");
-		int opcion = scanner.nextInt();
-
-		if (opcion==1) {
-
-			contadorAccion++;	
-		}
-
-		if (opcion==2) {
-			
-			contadorDrama++;
-		}
-
-		if (opcion==3) {
-			
-			contadorDocumental++;
-		}
-
-		if (opcion==4) {
-			
-			contadorComedia++;
-		}
-
-		if (opcion==5) {
-
-			contadorRomantica++;
-			
-		}
-
-        categoria = scanner.nextLine();
-        
-		matrizCategoriaPelicula[contadorPelicula]= categoria ;
-
-		matrizPeliculaDisponible[contadorPelicula] = true;
 
 
+	public void buscarNumero(int [] array){
 
-		//Pelicula prestada
+			if (contadorPelicula==0) {
+
+			System.out.println("Ingrese el id de la pelicula");
+			idPelicula = scanner.nextInt();
+			matrizIdPelicula[contadorPelicula]=idPelicula;
+				//cREAR PELICUAL
 		peliculaDisponible = true;
 		contadorPelicula++;
+
+			}
+
+			else{
+
+
+			
+			System.out.println("Ingrese el id de la pelicula");
+			idPelicula = scanner.nextInt();
+			int contador=0;
+			while ((contador < array.length ) &&(array[idPelicula]) !=idPelicula) {
+				contador++;
 					
+			}
+
+			if (contador != array.length) {
+
+				registrarPelicula();
+				System.out.println("Ingresa un id distinto");
+
+			}
+
+				else{
+
+					System.out.println("No lo encontre");	
+					System.out.println("No se encontro el numero ingresado" );
+					peliculaDisponible = true;
+					matrizIdPelicula[contadorPelicula]=idPelicula;
+					contadorPelicula++;
 
 				}
-			
+
+			}
+				
 			
 
-}    
+
+	}
+
+		}
+		
+
+
+
+
+
+
+
+
+
+		
+					
+
+			
 
 
 
