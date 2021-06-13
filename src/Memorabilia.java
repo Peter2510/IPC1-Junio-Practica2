@@ -96,6 +96,8 @@ public class Memorabilia {
             System.out.println("8. Reportes");
             System.out.println("9. Salir");
             System.out.print("\nIngresa la opcion a realizar: ");
+
+
             opcion = scanner.nextInt();
 
             System.out.println("___________________________________________________________");
@@ -342,6 +344,8 @@ public class Memorabilia {
 
         if (opcion == 1) {
 
+            
+ 
             contadorAccion++;
         }
 
@@ -407,6 +411,8 @@ public class Memorabilia {
 
 
         if (opcion == 1) {
+
+            matrizCategoriaPelicula[contadorPelicula]= "acción";
 
             contadorAccion++;
         }
