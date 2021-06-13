@@ -95,10 +95,6 @@ public class Memorabilia {
             System.out.println("7. Mostrar clientes registrados");
             System.out.println("8. Reportes");
             System.out.println("9. Salir");
-            System.out.println(primerId);
-            System.out.println(primerIdPelicula);
-            System.out.println("Peliculas registradas");
-
             System.out.print("\nIngresa la opcion a realizar: ");
             opcion = scanner.nextInt();
 
@@ -197,20 +193,14 @@ public class Memorabilia {
         idCliente = scanner.nextInt();
         matrizIdCliente[contadorCliente] = idCliente;
 
-
-
         verificarIdCliente(matrizIdCliente);
 
-        
-
         //Pelicula prestada
-        
 
         System.out.println("___________________________________________________________");
 
     }
 
-   
     //imprimir en pantalla los clientes
     public void mostrarClientes() {
 
@@ -255,47 +245,7 @@ public class Memorabilia {
         anioPelicula = scanner.nextInt();
         matrizAnioPelicula[contadorPelicula] = anioPelicula;
 
-        System.out.print("\nIngrese la categoria de la pelicula:  ");
-        System.out.print("\nCategorias disponibles:  ");
-        System.out.print("\n1. Accion");
-        System.out.print("\n2. Drama");
-        System.out.print("\n3. Documental");
-        System.out.print("\n4. Comedia");
-        System.out.print("\n5. Romantica");
-        System.out.print("\nIngresa el numero de la categoria: ");
-        int opcion = scanner.nextInt();
-
-        if (opcion == 1) {
-
-            contadorAccion++;
-        }
-
-        if (opcion == 2) {
-
-            contadorDrama++;
-        }
-
-        if (opcion == 3) {
-
-            contadorDocumental++;
-        }
-
-        if (opcion == 4) {
-
-            contadorComedia++;
-        }
-
-        if (opcion == 5) {
-
-            contadorRomantica++;
-
-        }
-
-        categoria = scanner.nextLine();
-
-        matrizCategoriaPelicula[contadorPelicula] = categoria;
-
-        matrizPeliculaDisponible[contadorPelicula] = true;
+       
 
         //Ingresar el id del cliente
 
@@ -378,6 +328,49 @@ public class Memorabilia {
             System.out.println("Ingrese el id de la pelicula");
             idPelicula = scanner.nextInt();
             matrizIdPelicula[contadorPelicula] = idPelicula;
+             System.out.print("\nIngrese la categoria de la pelicula:  ");
+        System.out.print("\nCategorias disponibles:  ");
+        System.out.print("\n1. Accion");
+        System.out.print("\n2. Drama");
+        System.out.print("\n3. Documental");
+        System.out.print("\n4. Comedia");
+        System.out.print("\n5. Romantica");
+        System.out.print("\nIngresa el numero de la categoria: ");
+        int opcion = scanner.nextInt();
+
+
+
+        if (opcion == 1) {
+
+            contadorAccion++;
+        }
+
+        if (opcion == 2) {
+
+            contadorDrama++;
+        }
+
+        if (opcion == 3) {
+
+            contadorDocumental++;
+        }
+
+        if (opcion == 4) {
+
+            contadorComedia++;
+        }
+
+        if (opcion == 5) {
+
+            contadorRomantica++;
+
+        }
+
+        categoria = scanner.nextLine();
+
+        matrizCategoriaPelicula[contadorPelicula] = categoria;
+
+        matrizPeliculaDisponible[contadorPelicula] = true;
             //cREAR PELICUAL
             peliculaDisponible = true;
             contadorPelicula++;
@@ -401,6 +394,49 @@ public class Memorabilia {
 
                 System.out.println("No lo encontre");
                 System.out.println("No se encontro el numero ingresado");
+                 System.out.print("\nIngrese la categoria de la pelicula:  ");
+        System.out.print("\nCategorias disponibles:  ");
+        System.out.print("\n1. Accion");
+        System.out.print("\n2. Drama");
+        System.out.print("\n3. Documental");
+        System.out.print("\n4. Comedia");
+        System.out.print("\n5. Romantica");
+        System.out.print("\nIngresa el numero de la categoria: ");
+        int opcion = scanner.nextInt();
+
+
+
+        if (opcion == 1) {
+
+            contadorAccion++;
+        }
+
+        if (opcion == 2) {
+
+            contadorDrama++;
+        }
+
+        if (opcion == 3) {
+
+            contadorDocumental++;
+        }
+
+        if (opcion == 4) {
+
+            contadorComedia++;
+        }
+
+        if (opcion == 5) {
+
+            contadorRomantica++;
+
+        }
+
+        categoria = scanner.nextLine();
+
+        matrizCategoriaPelicula[contadorPelicula] = categoria;
+
+        matrizPeliculaDisponible[contadorPelicula] = true;
                 peliculaDisponible = true;
                 matrizIdPelicula[contadorPelicula] = idPelicula;
                 contadorPelicula++;
@@ -415,19 +451,13 @@ public class Memorabilia {
 
         if (contadorCliente == 0) {
 
-            
-            
             matrizIdCliente[contadorCliente] = idCliente;
             //cREAR cliente
             tienePeliculaPrestada = false;
-        contadorCliente++;
-            
-           
+            contadorCliente++;
 
         } else {
 
-            
-            
             int contador = 0;
             while ((contador < array.length) && (array[idCliente]) != idCliente) {
                 contador++;
@@ -447,8 +477,7 @@ public class Memorabilia {
                 tienePeliculaPrestada = false;
                 matrizIdCliente[contadorCliente] = idCliente;
                 tienePeliculaPrestada = false;
-                   contadorCliente++;
-                
+                contadorCliente++;
 
             }
 
