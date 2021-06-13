@@ -203,13 +203,15 @@ public class Memorabilia{
         idCliente = scanner.nextInt();
         matrizIdCliente[contadorCliente]=idCliente;
 
+        verificarIdCliente(matrizIdCliente);
+
         System.out.print("\nIngrese el telefono del cliente: ");
         telefonoCliente = scanner.nextInt();
         matrizTelefonoCliente[contadorCliente]=telefonoCliente;
 
         //Pelicula prestada
         tienePeliculaPrestada = false;
-        contadorCliente++;
+        
 
         System.out.println("___________________________________________________________");
 
@@ -482,6 +484,58 @@ public class Memorabilia{
 
 
     }
+
+
+    public void verificarIdCliente(int [] array){
+
+            if (contadorCliente==0) {
+
+            System.out.println("Ingrese el id del cliente");
+            idCliente = scanner.nextInt();
+            matrizIdCliente[contadorCliente]=idCliente;
+                //cREAR PELICUAL
+        tienePeliculaPrestada = false;
+        contadorCliente++;
+
+            }
+
+            else{
+
+
+            
+            System.out.println("Ingrese el id de la pelicula");
+            idCliente = scanner.nextInt();
+            int contador=0;
+            while ((contador < array.length ) &&(array[idCliente]) !=idCliente) {
+                contador++;
+                    
+            }
+
+            if (contador != array.length) {
+
+
+                System.out.println("NOOOOO");
+                System.out.println("Ingresa un id distinto");
+                registrarClientes();
+
+            }
+
+                else{
+
+                    System.out.println("No lo encontre");   
+                    System.out.println("No se encontro el numero ingresado" );
+                    tienePeliculaPrestada = false;
+                    matrizIdCliente[contadorCliente]=idCliente;
+                    contadorCliente++;
+
+                }
+
+            }
+             }   
+            
+
+
+    
 
         }
         
