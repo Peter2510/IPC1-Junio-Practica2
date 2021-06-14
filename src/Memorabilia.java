@@ -17,6 +17,11 @@ public class Memorabilia {
     int contadorCliente = 0;
     int contadorPelicula = 0;
     boolean tienePeliculaPrestada;
+    int idClienteBuscar =0;
+    int posicionCliente =0;
+    int posicionPelicula=0;
+
+
     //variables globales de las peliculas
     String nombrePelicula;
     int idPelicula;
@@ -30,10 +35,16 @@ public class Memorabilia {
     int contadorComedia = 0;
     int contadorRomantica = 0;
     boolean idPeliculaRepetida = false;
+
+
     //variables globales peliculas prestadas
     int idPeliculaPrestada =0;
     int idClientePrestamo =0;
     int diasPrestamo =0;
+    int contadorPeliculasPrestadas=0;
+    int idPeliculaBuscar = 0;
+
+
     //matriz de clientes
     // TipoDeDato nombre[] = new TipoDeDato[tamaño];
     //matriz de nombres
@@ -54,6 +65,11 @@ public class Memorabilia {
     boolean matrizPeliculaDisponible[] = new boolean[30];
     //matriz cliente con pelicula prestada
     boolean matrizClienteDisponibleParaPrestar[] = new boolean[30];
+    //matriz dias prestamo
+    int diasPrestamoPeliculas[] = new int[30];
+    //matrizPeliculasPrestadas
+    int  matrizIdPeliculaPrestada[] = new int[30];
+    int matrizIdClientePrestador[] = new int[30];
 
     //constructor de la practica
     public Memorabilia() {
@@ -411,6 +427,7 @@ public class Memorabilia {
     }
 
     public void mostrarPeliculas() {
+        System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         String enPrestamo;
         if (contadorPelicula == 0) {
             System.out.print("\nAun no hay peliculas registradas\n");
@@ -421,9 +438,10 @@ public class Memorabilia {
                 } else {
                     enPrestamo = "no";
                 }
-                System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                
                 System.out.println("\nid: " + matrizIdPelicula[i] + ", Nombre de la pelicula: " + matrizNombrePelicula[i] + ", año de estreno: " + matrizAnioPelicula[i] + ", Categoria: " + matrizCategoriaPelicula[i] + ", disponible: " + matrizPeliculaDisponible[i]);
-            }
+                }
+                imprimirPrestadas();
             System.out.println();
         }
     }
@@ -472,7 +490,8 @@ public class Memorabilia {
     public void buscarIdPeliculaPrestada(int[] array) {
 
         System.out.println("Ingrese el id de la pelicula a prestar");
-        int idPeliculaBuscar = scanner.nextInt();
+        idPeliculaBuscar = scanner.nextInt();
+        idPeliculaPrestada=idPeliculaBuscar;
         int posicion = -1;
 
         for (int i = 0; i < array.length; i++) {
@@ -480,6 +499,7 @@ public class Memorabilia {
             if (idPeliculaBuscar == array[i]) {
 
                 posicion = i;
+                posicionPelicula=i;
 
             }
 
@@ -492,7 +512,8 @@ public class Memorabilia {
             
             System.out.println("Ingresa el id del cliente a prestar la pelicula:");
 
-            idPeliculaPrestada=idPeliculaBuscar;
+           
+            
 
             mostrarClientes();
 
@@ -513,7 +534,8 @@ public class Memorabilia {
      public void buscarIdClienteAPrestar(int[] array) {
 
         System.out.println("Ingrese el id del cliente a buscar a prestar");
-        int idClienteBuscar = scanner.nextInt();
+        idClienteBuscar = scanner.nextInt();
+        idClientePrestamo = idClienteBuscar;
         int posicion = -1;
 
         for (int i = 0; i < array.length; i++) {
@@ -521,6 +543,7 @@ public class Memorabilia {
             if (idClienteBuscar == array[i]) {
 
                 posicion = i;
+                posicionCliente=i ;
 
             }
 
@@ -529,10 +552,23 @@ public class Memorabilia {
         if (posicion >= 0) {
 
             System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
-            idClientePrestamo = idClienteBuscar;
+            
+ 
 
-            matrizPeliculaDisponible[0]= false;
-            matrizClienteDisponibleParaPrestar[0]=true;
+            matrizIdClientePrestador[contadorPeliculasPrestadas]=idClientePrestamo;
+            matrizIdPeliculaPrestada[contadorPeliculasPrestadas]= idPeliculaBuscar;
+
+
+            System.out.println("Ingrese la cantidad de dias a prestar");
+            diasPrestamo = scanner.nextInt();
+            diasPrestamoPeliculas[contadorPeliculasPrestadas]=diasPrestamo;
+
+
+
+
+            matrizPeliculaDisponible[posicionPelicula]= false;
+            matrizClienteDisponibleParaPrestar[posicionCliente]=true;
+            contadorPeliculasPrestadas++;
 
 
             
@@ -546,5 +582,16 @@ public class Memorabilia {
             System.out.println("Dato no encontrado");
         }
 
+    }
+
+    public void imprimirPrestadas(){
+        System.out.println("\n____________________  PELICULAS PRESTADAS   __________________________________________________");
+                
+        for (int j = 0; j < contadorPeliculasPrestadas ; j++ ) {
+                            System.out.println("\nidClientePrestamo: " + matrizIdClientePrestador[j] + ", idPeliculaPrestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias: " + diasPrestamoPeliculas[j]);
+
+        }
+
+       
     }
 }
