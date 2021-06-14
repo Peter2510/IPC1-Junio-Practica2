@@ -278,7 +278,7 @@ public class Memorabilia {
     //imprimir en pantalla los clientes
     public void mostrarClientes() {
 
-        if (ordenado == false) {
+        //if (ordenado == false) {
 
             if (contadorCliente == 0) {
             System.out.print("\nAun no hay clientes registrados\n");
@@ -300,10 +300,10 @@ public class Memorabilia {
             System.out.println();
         }
             
-        }
-            else{
-                System.out.println("Esperando para organizar");
-            }
+        //}
+            //else{
+              //  System.out.println("Esperando para organizar");
+           // }
 
         
     }
@@ -520,6 +520,16 @@ public class Memorabilia {
         System.out.println("Peliculas categoria en documental: " + contadorDocumental);
         System.out.println("Peliculas categoria en comedia: " + contadorComedia);
         System.out.println("Peliculas categoria en Romantica: " + contadorRomantica);
+         
+
+         for (int i = 0; i< contadorMasPrestada ; i++ ) {
+                    
+
+                    System.out.println("Id pelicula prestada: "+matrizIdPelicula[i] +" Cantidad de veces prestada: " +arrayPeliculasPrestadas[i]);                    
+                }
+
+
+
         System.out.print("\n Ingrese la opcion para observar las peliculas registradas por categoria: \n");
         System.out.print("\n1. Accion");
         System.out.print("\n2. Drama");
@@ -550,16 +560,12 @@ public class Memorabilia {
                    
                 }
                 if (opcionCg == 5) {
-                            System.out.println("\nPeliculas registradas en la categoria de romance: " + contadorRomantica);
+                            System.out.println("\nPeliculas registradas en la categoria de romance: \n" + contadorRomantica);
 
                    
                 }
 
-                for (int i = 0; i< contadorMasPrestada ; i++ ) {
-                    
-
-                System.out.println("id peli "+matrizIdPelicula[i] +" catnitad prestada " +arrayPeliculasPrestadas[i]);                    
-                }
+               
 
 
 
@@ -675,7 +681,9 @@ public class Memorabilia {
             }
             else{
 
-                arrayPeliculasPrestadas[posicionPelicula]=contadorMasPrestada+1;
+                contadorMasPrestada = contadorPeliculasPrestadas+1;
+
+                arrayPeliculasPrestadas[posicionPelicula]=contadorMasPrestada;
     
             }
             
@@ -705,7 +713,7 @@ public class Memorabilia {
         System.out.println("\n____________________   HISTORIAL DE  PELICULAS PRESTADAS   __________________________________________________");
                 
         for (int j = 0; j < contadorPeliculasPrestadas ; j++ ) {
-                            System.out.println("   Id Cliente   " + matrizIdClientePrestador[j] + "   Nombre Pelicula   " +matrizNombrePelicula[j] + ", Id pelicula prestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias prestada:  " + diasPrestamoPeliculas[j]);
+                            System.out.println("   Id Cliente   " + matrizIdClientePrestador[j] + " Id pelicula prestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias prestada:  " + diasPrestamoPeliculas[j]);
 
         }
 
@@ -748,7 +756,7 @@ public class Memorabilia {
 
 
         } else {
-            System.out.println("Dato no encontrado");
+            //System.out.println("Dato no encontrado");
              System.out.println(" *********       INGRESA UN ID VALIDO *********       ");
         }
 
@@ -809,7 +817,7 @@ public class Memorabilia {
 
 
         } else {
-            System.out.println("Dato no encontrado");
+            //System.out.println("Dato no encontrado");
              System.out.println("   **********    INGRESA UN ID VALIDO   **********     ");
         }
 
@@ -845,9 +853,6 @@ public class Memorabilia {
         }
 
     }
-
-
-
 
 
 
