@@ -31,9 +31,9 @@ public class Memorabilia {
     int contadorRomantica = 0;
     boolean idPeliculaRepetida = false;
     //variables globales peliculas prestadas
-    int idPeliculaPrestada;
-    int idClientePrestamo;
-    int diasPrestamo;
+    int idPeliculaPrestada =0;
+    int idClientePrestamo =0;
+    int diasPrestamo =0;
     //matriz de clientes
     // TipoDeDato nombre[] = new TipoDeDato[tamaño];
     //matriz de nombres
@@ -169,10 +169,7 @@ public class Memorabilia {
 
 
 
-
-
-
-            
+   
         }
 
 
@@ -436,10 +433,21 @@ public class Memorabilia {
             mostrarPeliculas();
 
             System.out.println("\nSolo puedes prestar una pelicula a la vez");
+
             buscarIdPeliculaPrestada(matrizIdPelicula);
+
+
+
+
         } else {
+
+
             System.out.println("Verifica que al menos exista un cliente y pelicula registrada");
+
+
         }
+
+
     }
 
     public void reportes() {
@@ -477,6 +485,53 @@ public class Memorabilia {
         if (posicion >= 0) {
 
             System.out.println(" El dato " + idPeliculaBuscar + " se encuentra en la posicion " + posicion);
+
+            
+            System.out.println("Ingresa el id del cliente a prestar la pelicula:");
+            idPeliculaPrestada=idPeliculaBuscar;
+
+            mostrarClientes();
+
+            buscarIdClienteAPrestar(matrizIdCliente);
+
+
+
+
+
+        } else {
+            System.out.println("Dato no encontrado");
+        }
+
+
+
+    }
+
+     public void buscarIdClienteAPrestar(int[] array) {
+
+        System.out.println("Ingrese el id del cliente a buscar a prestar");
+        int idClienteBuscar = scanner.nextInt();
+        int posicion = -1;
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (idClienteBuscar == array[i]) {
+
+                posicion = i;
+
+            }
+
+        }
+
+        if (posicion >= 0) {
+
+            System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
+
+            
+           System.out.println("La pelicula fue prestada");
+
+            
+
+
 
         } else {
             System.out.println("Dato no encontrado");
