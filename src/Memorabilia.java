@@ -99,7 +99,6 @@ public class Memorabilia {
             System.out.println("5. Ordenar las peliculas en forma ascente respecto al id ");
             System.out.println("6. Registrar nuevos clientes");
             System.out.println("7. Mostrar clientes registrados");
-            System.out.println(matrizIdCliente[1]);
             System.out.println("8. Reportes");
             System.out.println("9. Salir");
             System.out.print("\nIngresa la opcion a realizar: ");
@@ -303,7 +302,7 @@ public class Memorabilia {
             
         }
             else{
-                System.out.println("Ahorita vot");
+                System.out.println("Esperando para organizar");
             }
 
         
