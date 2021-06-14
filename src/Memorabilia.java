@@ -85,7 +85,7 @@ public class Memorabilia {
         int opcion = 0;
         //Mostrar el menu mientras no se ingrese la opcion de salir, es decir, el numero 9
         do {
-            System.out.println("___________________________________________________________");
+            System.out.println("\n\n_______________________________   MENU   ______________________________________");
             System.out.println("\nSelecciona una opcion: ");
             System.out.println("\n1. Prestamo de peliculas ");
             System.out.println("2. Devolucion de peliculas ");
@@ -97,7 +97,6 @@ public class Memorabilia {
             System.out.println("8. Reportes");
             System.out.println("9. Salir");
             System.out.print("\nIngresa la opcion a realizar: ");
-
             opcion = scanner.nextInt();
 
             System.out.println("___________________________________________________________");
@@ -275,6 +274,8 @@ public class Memorabilia {
         if (contadorCliente == 0) {
             System.out.print("\nAun no hay clientes registrados\n");
         } else {
+
+             System.out.println("           *********   Clientes Registrados   *********   ");
             String prestamo;
             for (int i = 0; i < contadorCliente; i++) {
                 if (tienePeliculaPrestada == false) {
@@ -282,8 +283,9 @@ public class Memorabilia {
                 } else {
                     prestamo = "si";
                 }
-                System.out.println("CLIENTES REGISTRADOS");
-                System.out.println("\nid: " + matrizIdCliente[i] + ", Nombre del Cliente: " + matrizNombreCliente[i] + ", telefono: " + matrizTelefonoCliente[i] + ", Posee peliculas de la tienda: " + matrizClienteDisponibleParaPrestar[i]);
+               
+                System.out.println("\nid " + "     "    + " Nombre del Cliente " + "      "    + " telefono: " + "      "+ " Posee peliculas de la tienda " );
+                 System.out.println("\n" + matrizIdCliente[i] + "        " + matrizNombreCliente[i] + "                " + matrizTelefonoCliente[i] + "              " + matrizClienteDisponibleParaPrestar[i]);
             }
             System.out.println();
         }
@@ -292,13 +294,13 @@ public class Memorabilia {
     // Registrar nueva pelicua
     public void registrarPelicula(int[] array) {
 
-        System.out.println("___________________________________________________________");
         System.out.println("");
-        System.out.println("\nBienvenido al registro de peliculas");
+        System.out.println("");
+        System.out.println("\n               ****   Bienvenido al registro de peliculas   ****\n");
 
         if (contadorPelicula == 0) {
 
-            System.out.println("Ingrese el id de la pelicula");
+            System.out.print("\nIngrese el id de la pelicula:  ");
             idPelicula = scanner.nextInt();
             matrizIdPelicula[contadorPelicula] = idPelicula;
 
@@ -311,13 +313,13 @@ public class Memorabilia {
             anioPelicula = scanner.nextInt();
             matrizAnioPelicula[contadorPelicula] = anioPelicula;
 
-            System.out.print("\nIngrese la categoria de la pelicula:  ");
-            System.out.print("\nCategorias disponibles:  ");
-            System.out.print("\n1. Accion");
-            System.out.print("\n2. Drama");
-            System.out.print("\n3. Documental");
-            System.out.print("\n4. Comedia");
-            System.out.print("\n5. Romantica");
+            System.out.println("\nIngrese la categoria de la pelicula:  ");
+            System.out.println("\n                      Categorias disponibles:  ");
+            System.out.println("\n1. Accion");
+            System.out.println("\n2. Drama");
+            System.out.println("\n3. Documental");
+            System.out.println("\n4. Comedia");
+            System.out.println("\n5. Romantica");
             System.out.print("\nIngresa el numero de la categoria: ");
             int opcion = scanner.nextInt();
 
@@ -368,7 +370,8 @@ public class Memorabilia {
 
             if (posicion >= 0) {
 
-                System.out.println(" El dato " + idPelicula + " se encuentra en la posicion " + posicion);
+                //System.out.println(" El dato " + idPelicula + " se encuentra en la posicion " + posicion);
+                System.out.println("******  INGRESA UN ID DISTINTO   ******");
                 
 
             } else {
@@ -432,22 +435,32 @@ public class Memorabilia {
     }
 
     public void mostrarPeliculas() {
-        System.out.println("\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+      
         String enPrestamo;
         if (contadorPelicula == 0) {
-            System.out.print("\nAun no hay peliculas registradas\n");
+            System.out.print("\n*****   Aun no hay peliculas registradas   *****\n");
+
         } else {
+                            System.out.println("\nId|" + "   | Nombre de la pelicula | " + "| Año de estreno |" + "| Categoria |" + "| Disponible  |" );
+
             for (int i = 0; i < contadorPelicula; i++) {
                 if (matrizPeliculaDisponible[i] == false) {
-                    enPrestamo = "si";
-                } else {
                     enPrestamo = "no";
+                } else {
+                    enPrestamo = "si";
                 }
                 
-                System.out.println("\nid: " + matrizIdPelicula[i] + ", Nombre de la pelicula: " + matrizNombrePelicula[i] + ", año de estreno: " + matrizAnioPelicula[i] + ", Categoria: " + matrizCategoriaPelicula[i] + ", disponible: " + matrizPeliculaDisponible[i]);
+                System.out.println("\n" +matrizIdPelicula[i] +"      "+ matrizNombrePelicula[i] +"                 "+ matrizAnioPelicula[i] +"             "+ matrizCategoriaPelicula[i] +"        "+enPrestamo);
                 }
-                imprimirPrestadas();
-            System.out.println();
+
+                if (contadorPeliculasPrestadas>0) {
+                    imprimirPrestadas();
+                    
+                }else{
+                System.out.println();        
+                }
+                
+            
         }
     }
 
@@ -468,7 +481,8 @@ public class Memorabilia {
         } else {
 
 
-            System.out.println("Verifica que al menos exista un cliente y pelicula registrada");
+            System.out.println();
+            System.out.println("\n*****   Verifica que al menos exista un cliente y pelicula registrada  *****\n");
 
 
         }
@@ -477,7 +491,7 @@ public class Memorabilia {
     }
 
     public void reportes() {
-        System.out.println("___________________________________________________________");
+        System.out.println("");
         System.out.println("");
         System.out.println("CANTIDAD DE PELICULAS POR CATEGORIA");
         System.out.println("\nPeliculas categoria en acción: " + contadorAccion);
@@ -485,7 +499,42 @@ public class Memorabilia {
         System.out.println("Peliculas categoria en documental: " + contadorDocumental);
         System.out.println("Peliculas categoria en comedia: " + contadorComedia);
         System.out.println("Peliculas categoria en Romantica: " + contadorRomantica);
-        System.out.println("___________________________________________________________");
+        System.out.print("\n Ingrese la opcion para observar las peliculas registradas por categoria: \n");
+        System.out.print("\n1. Accion");
+        System.out.print("\n2. Drama");
+        System.out.print("\n3. Documental");
+        System.out.print("\n4. Comedia");
+        System.out.println("\n5. Romantica");
+        System.out.print("Ingresa una opcion: ");
+        int opcionCg = scanner.nextInt();
+
+          if (opcionCg == 1) {
+
+                    System.out.println("\nPeliculas registradas en la categoria de acción: " + contadorAccion);
+                }
+
+                if (opcionCg == 2) {
+
+                    System.out.println("\nPeliculas registradas en la categoria de drama: " + contadorDrama);
+                    
+                }
+                if (opcionCg == 3) {
+                            System.out.println("\nPeliculas registradas en la categoria de documental:  "+ contadorDocumental);
+
+                    
+                }
+                if (opcionCg == 4) {
+                            System.out.println("\nPeliculas registradas en la categoria de comedia: " + contadorComedia);
+
+                   
+                }
+                if (opcionCg == 5) {
+                            System.out.println("\nPeliculas registradas en la categoria de romance: " + contadorRomantica);
+
+                   
+                }
+
+
     }
 
 
@@ -494,7 +543,7 @@ public class Memorabilia {
 
     public void buscarIdPeliculaPrestada(int[] array) {
 
-        System.out.println("Ingrese el id de la pelicula a prestar");
+        System.out.print("Ingrese el id de la pelicula que deseas prestar: ");
         idPeliculaBuscar = scanner.nextInt();
         idPeliculaPrestada=idPeliculaBuscar;
         int posicion = -1;
@@ -520,10 +569,10 @@ public class Memorabilia {
 
             else{
 
-            System.out.println(" El dato " + idPeliculaBuscar + " se encuentra en la posicion " + posicion);
+            //System.out.println(" El dato " + idPeliculaBuscar + " se encuentra en la posicion " + posicion);
 
             
-            System.out.println("Ingresa el id del cliente a prestar la pelicula:");
+            System.out.print("Ingresa el id del cliente a prestará la pelicula:");
 
            
             mostrarClientes();
@@ -539,8 +588,10 @@ public class Memorabilia {
 
 
         } else {
-            System.out.println("Dato no encontrado");
-        }
+            //System.out.println("Dato no encontrado");
+
+             System.out.println("*******   INGRESA UN ID DISTINTO   ***********");
+        } 
 
 
 
@@ -548,7 +599,7 @@ public class Memorabilia {
 
      public void buscarIdClienteAPrestar(int[] array) {
 
-        System.out.println("Ingrese el id del cliente a buscar a prestar");
+        System.out.print("Ingrese el id del cliente que prestará la pelicula");
         idClienteBuscar = scanner.nextInt();
         idClientePrestamo = idClienteBuscar;
         int posicion = -1;
@@ -575,7 +626,7 @@ public class Memorabilia {
 
             else{
 
-                 System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
+                // System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
             
  
 
@@ -583,7 +634,7 @@ public class Memorabilia {
             matrizIdPeliculaPrestada[contadorPeliculasPrestadas]= idPeliculaBuscar;
 
 
-            System.out.println("Ingrese la cantidad de dias a prestar");
+            System.out.print("Ingrese la cantidad de dias a prestar");
             diasPrestamo = scanner.nextInt();
             diasPrestamoPeliculas[contadorPeliculasPrestadas]=diasPrestamo;
 
@@ -595,7 +646,7 @@ public class Memorabilia {
 
             contadorPeliculasPrestadas++;
 
-               System.out.println("La pelicula fue prestada");
+               System.out.println(" *************   La pelicula fue prestada   *************");
 
 
             }
@@ -604,13 +655,14 @@ public class Memorabilia {
 
 
         } else {
-            System.out.println("Dato no encontrado");
+        //System.out.println("Dato no encontrado");
+             System.out.println(" *******  INGRESA UN ID VALIDO  *******");
         }
 
     }
 
     public void imprimirPrestadas(){
-        System.out.println("\n____________________  PELICULAS PRESTADAS   __________________________________________________");
+        System.out.println("\n____________________   HISTORIAL DE  PELICULAS PRESTADAS   __________________________________________________");
                 
         for (int j = 0; j < contadorPeliculasPrestadas ; j++ ) {
                             System.out.println("\nNombre del cliente "+matrizNombreCliente[j]+" id Cliente " + matrizIdClientePrestador[j] + "nombre Pelicula" +matrizNombrePelicula[j] + ", idPeliculaPrestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias: " + diasPrestamoPeliculas[j]);
@@ -649,37 +701,25 @@ public class Memorabilia {
 
 
 
-            System.out.println(" El dato " + idPeliculaDevolver + " se encuentra en la posicion " + posicion);
-            
+            //System.out.println(" El dato " + idPeliculaDevolver + " se encuentra en la posicion " + posicion);
  
 
-          
-
-
-
-            
-
             devolverPeliculasCliente(matrizIdClientePrestador);
-            
-            
-
-              
-
-
-            
-
-        
 
 
         } else {
             System.out.println("Dato no encontrado");
+             System.out.println(" *********       INGRESA UN ID VALIDO *********       ");
         }
 
             
         }
 
         else{
-            System.out.println("Aun no hay peliculas prestadas");
+
+            System.out.println();
+            System.out.println("\n*****  Aun no hay peliculas prestadas  *****\n");
+            
         }
 
       
@@ -689,7 +729,7 @@ public class Memorabilia {
 
     public void devolverPeliculasCliente(int[] array){
 
-        System.out.println("Ingrese el id del cliente que devulve la pelicula");
+        System.out.print("Ingrese el id del cliente que devulve la pelicula");
         idClienteDevolver = scanner.nextInt();
         
         int posicion = -1;
@@ -712,7 +752,7 @@ public class Memorabilia {
 
 
 
-            System.out.println(" El dato " + idClienteDevolver + " se encuentra en la posicion " + posicion);
+          //  System.out.println(" El dato " + idClienteDevolver + " se encuentra en la posicion " + posicion);
             
 
             matrizPeliculaDisponible[posicionPeliculaDevolver]= true;
@@ -720,7 +760,7 @@ public class Memorabilia {
             
             
 
-               System.out.println("La pelicula fue devuleta");
+               System.out.println("\n********       La pelicula fue devuleta      *************");
 
 
             
@@ -730,10 +770,13 @@ public class Memorabilia {
 
         } else {
             System.out.println("Dato no encontrado");
+             System.out.println("   **********    INGRESA UN ID VALIDO   **********     ");
         }
 
 
 
     }
+
+
 
 }
