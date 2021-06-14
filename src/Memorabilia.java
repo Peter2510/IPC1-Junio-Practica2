@@ -52,6 +52,8 @@ public class Memorabilia {
     String matrizCategoriaPelicula[] = new String[30];
     //matriz disponibilidad de pelicula
     boolean matrizPeliculaDisponible[] = new boolean[30];
+    //matriz cliente con pelicula prestada
+    boolean matrizClienteDisponibleParaPrestar[] = new boolean[30];
 
     //constructor de la practica
     public Memorabilia() {
@@ -157,8 +159,9 @@ public class Memorabilia {
         telefonoCliente = scanner.nextInt();
         matrizTelefonoCliente[contadorCliente] = telefonoCliente;
 
-
-        tienePeliculaPrestada = false;
+        
+        matrizClienteDisponibleParaPrestar[contadorCliente]=false;
+        
         contadorCliente++;
 
         
@@ -220,7 +223,7 @@ public class Memorabilia {
         telefonoCliente = scanner.nextInt();
         matrizTelefonoCliente[contadorCliente] = telefonoCliente;
 
-         tienePeliculaPrestada = false;
+         matrizClienteDisponibleParaPrestar[contadorCliente]=false;
         contadorCliente++;
 
 
@@ -259,7 +262,7 @@ public class Memorabilia {
                     prestamo = "si";
                 }
                 System.out.println("CLIENTES REGISTRADOS");
-                System.out.println("\nid: " + matrizIdCliente[i] + ", Nombre del Cliente: " + matrizNombreCliente[i] + ", telefono: " + matrizTelefonoCliente[i] + ", Posee peliculas de la tienda: " + prestamo);
+                System.out.println("\nid: " + matrizIdCliente[i] + ", Nombre del Cliente: " + matrizNombreCliente[i] + ", telefono: " + matrizTelefonoCliente[i] + ", Posee peliculas de la tienda: " + matrizClienteDisponibleParaPrestar[i]);
             }
             System.out.println();
         }
@@ -529,7 +532,8 @@ public class Memorabilia {
             idClientePrestamo = idClienteBuscar;
 
             matrizPeliculaDisponible[0]= false;
-            
+            matrizClienteDisponibleParaPrestar[0]=true;
+
 
             
            System.out.println("La pelicula fue prestada");
