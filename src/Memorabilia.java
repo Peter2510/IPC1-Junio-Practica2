@@ -488,6 +488,7 @@ public class Memorabilia {
 
             
             System.out.println("Ingresa el id del cliente a prestar la pelicula:");
+
             idPeliculaPrestada=idPeliculaBuscar;
 
             mostrarClientes();
@@ -525,6 +526,10 @@ public class Memorabilia {
         if (posicion >= 0) {
 
             System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
+            idClientePrestamo = idClienteBuscar;
+
+            matrizPeliculaDisponible[0]= false;
+            
 
             
            System.out.println("La pelicula fue prestada");
