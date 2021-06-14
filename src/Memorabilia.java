@@ -68,6 +68,9 @@ public class Memorabilia {
     //matriz disponibilidad de pelicula
     boolean matrizPeliculaDisponible[] = new boolean[30];
 
+    //matriz peliculas prestadas
+    int matrizIdPeliculasPrestadas[] = new int[30];
+
     //constructor de la practica
 
     public Memorabilia() {
@@ -285,29 +288,28 @@ public class Memorabilia {
 
     public void prestamoPeliculas() {
 
-        int idPrestar = 0;
 
-        //se muestran las peliculas registradas
+
+       if (contadorPelicula>0 && contadorCliente > 0) {
+
+        System.out.println("PELICULAS DISPONIBLES PARA PRESTAR");
+        System.out.println("\n");
         mostrarPeliculas();
+        
 
-        //si hay peliculas registradas
-        if (contadorPelicula > 0) {
+        buscarIdPeliculaPrestada(matrizIdPelicula);
 
-            System.out.println("\nSolo puedes prestar una pelicula a la vez");
+           
+       }
 
-            System.out.println("\nIngresa el id de la pelicula que deseas : ");
-            idPrestar = scanner.nextInt();
-
-        }
+       else{
+        System.out.println("verica que exista por lo menos una pelicula y un cliente disponible");
+       }
+        
 
     }
 
-    public void codigoPeliculaAlquilar() {
-        System.out.println("Ingrese la pelicula a alquilar:");
-        int codigo = scanner.nextInt();
-
-        //matrizIdPelicula
-    }
+    
 
     public void reportes() {
 
@@ -490,4 +492,39 @@ public class Memorabilia {
         }
     }
 
-}
+    public void buscarIdPeliculaPrestada(int[] array) {
+
+         System.out.println("Ingrese el id de la pelicula a prestar");
+         int idPeliculaBuscar = scanner.nextInt();
+         int posicion  = -1;
+
+         for (int i = 0; i<array.length ; i++ ) {
+
+            if (idPeliculaBuscar==array[i]) {
+
+                posicion =i;
+                
+                
+            }
+
+            }
+
+            if (posicion>=0) {
+
+                System.out.println(" El dato "+ idPeliculaBuscar+" se encuentra en la posicion "+ posicion);
+                
+            }
+
+            else{
+                System.out.println("Dato no encontrado");   
+            }
+      
+            
+
+        }
+
+            
+    
+    }
+
+
