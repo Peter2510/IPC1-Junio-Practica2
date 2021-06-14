@@ -22,6 +22,7 @@ public class Memorabilia {
     int posicionPelicula=0;
     int posicionClienteDevolver=0;
     int posicionPeliculaDevolver=0;
+    boolean ordenado = false;
 
 
     //variables globales de las peliculas
@@ -91,9 +92,10 @@ public class Memorabilia {
             System.out.println("2. Devolucion de peliculas ");
             System.out.println("3. Mostrar datos de las peliculas ");
             System.out.println("4. Registrar nueva pelicula ");
-            System.out.println("5. Ordenar las peliculas en forma ascente respecto al nombre ");
+            System.out.println("5. Ordenar las peliculas en forma ascente respecto al id ");
             System.out.println("6. Registrar nuevos clientes");
             System.out.println("7. Mostrar clientes registrados");
+            System.out.println(matrizIdCliente[1]);
             System.out.println("8. Reportes");
             System.out.println("9. Salir");
             System.out.print("\nIngresa la opcion a realizar: ");
@@ -128,7 +130,9 @@ public class Memorabilia {
         }
         //Opcion 5 seleccionada
         if (opcion == 5) {
-            System.out.println("5. Ordenar las peliculas en forma ascente respecto al nombre ");
+
+            ordenado = true;
+            ordenarAscendenteId(matrizIdCliente);
         }
         //Opcion 6 seleccionada
         if (opcion == 6) {
@@ -217,11 +221,11 @@ public class Memorabilia {
 
         if (posicion >= 0) {
 
-            System.out.println(" El dato " + idCliente + " se encuentra en la posicion " + posicion);
+            //System.out.println(" El dato " + idCliente + " se encuentra en la posicion " + posicion);
             System.out.println("INGRESE UN ID DISTINTO");
 
         } else {
-            System.out.println("Dato no encontrado");
+            //System.out.println("Dato no encontrado");
 
 
 
@@ -271,7 +275,9 @@ public class Memorabilia {
     //imprimir en pantalla los clientes
     public void mostrarClientes() {
 
-        if (contadorCliente == 0) {
+        if (ordenado == false) {
+
+            if (contadorCliente == 0) {
             System.out.print("\nAun no hay clientes registrados\n");
         } else {
 
@@ -289,6 +295,13 @@ public class Memorabilia {
             }
             System.out.println();
         }
+            
+        }
+            else{
+                System.out.println("Ahorita vot");
+            }
+
+        
     }
 
     // Registrar nueva pelicua
@@ -776,6 +789,37 @@ public class Memorabilia {
 
 
     }
+
+    public void ordenarAscendenteId(int [] array){
+        int auxiliar;
+
+        for (int i = 0; i < array.length  ; i++ ) {
+
+            for (int j = 0; j < (array.length -1 ) ; j++ ) {
+                
+
+
+                if (array[j] > array[j+1]) {
+
+                    auxiliar = array[j];
+                    array[j]= array[j+1];
+                    array[j+1]= auxiliar;
+                    
+                }
+
+            }
+            
+        } 
+
+        for (int i = 0; i < array.length ; i++ ) { 
+
+            System.out.println(array[i] + " " ) ;
+            
+        }
+
+    }
+
+
 
 
 
