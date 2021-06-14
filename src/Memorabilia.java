@@ -20,6 +20,8 @@ public class Memorabilia {
     int idClienteBuscar =0;
     int posicionCliente =0;
     int posicionPelicula=0;
+    int posicionClienteDevolver=0;
+    int posicionPeliculaDevolver=0;
 
 
     //variables globales de las peliculas
@@ -43,6 +45,8 @@ public class Memorabilia {
     int diasPrestamo =0;
     int contadorPeliculasPrestadas=0;
     int idPeliculaBuscar = 0;
+    int idPeliculaDevolver=0;
+    int idClienteDevolver = 0;
 
 
     //matriz de clientes
@@ -112,7 +116,8 @@ public class Memorabilia {
         }
         //Opcion 2 seleccionada
         if (opcion == 2) {
-            System.out.println("\n2. Devolucion de peliculas ");
+
+            devolverPeliculas(matrizIdPeliculaPrestada);
         }
         //Opcion 3 seleccionada
         if (opcion == 3) {
@@ -587,6 +592,7 @@ public class Memorabilia {
 
             matrizPeliculaDisponible[posicionPelicula]= false;
             matrizClienteDisponibleParaPrestar[posicionCliente]=true;
+
             contadorPeliculasPrestadas++;
 
                System.out.println("La pelicula fue prestada");
@@ -594,12 +600,7 @@ public class Memorabilia {
 
             }
 
-           
-
-            
         
-            
-
 
 
         } else {
@@ -617,5 +618,121 @@ public class Memorabilia {
         }
 
        
+    }
+
+    public void devolverPeliculas(int [] array){
+
+        
+        if (contadorPeliculasPrestadas>0) {
+
+              imprimirPrestadas();
+
+
+        System.out.println("Ingrese el id de la pelicula a devolver");
+        idPeliculaDevolver = scanner.nextInt();
+        
+        int posicion = -1;
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (idPeliculaDevolver == array[i]) {
+
+                posicion = i;
+                posicionClienteDevolver=i ;
+                
+
+            }
+
+        }
+
+        if (posicion >= 0) {
+
+
+
+            System.out.println(" El dato " + idPeliculaDevolver + " se encuentra en la posicion " + posicion);
+            
+ 
+
+          
+
+
+
+            
+
+            devolverPeliculasCliente(matrizIdClientePrestador);
+            
+            
+
+              
+
+
+            
+
+        
+
+
+        } else {
+            System.out.println("Dato no encontrado");
+        }
+
+            
+        }
+
+        else{
+            System.out.println("Aun no hay peliculas prestadas");
+        }
+
+      
+
+
+    }
+
+    public void devolverPeliculasCliente(int[] array){
+
+        System.out.println("Ingrese el id del cliente que devulve la pelicula");
+        idClienteDevolver = scanner.nextInt();
+        
+        int posicion = -1;
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (idClienteDevolver == array[i]) {
+
+                posicion = i;
+                posicionClienteDevolver =i;
+
+                
+                
+
+            }
+
+        }
+
+        if (posicion >= 0) {
+
+
+
+            System.out.println(" El dato " + idClienteDevolver + " se encuentra en la posicion " + posicion);
+            
+
+            matrizPeliculaDisponible[posicionPeliculaDevolver]= true;
+            matrizClienteDisponibleParaPrestar[posicionClienteDevolver]=false;
+            
+            
+
+               System.out.println("La pelicula fue devuleta");
+
+
+            
+
+        
+
+
+        } else {
+            System.out.println("Dato no encontrado");
+        }
+
+
+
     }
 }
