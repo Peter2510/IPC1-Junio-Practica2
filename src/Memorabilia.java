@@ -507,17 +507,27 @@ public class Memorabilia {
 
         if (posicion >= 0) {
 
+            if (matrizPeliculaDisponible[posicionPelicula]==false) {
+
+                System.out.println("La pelicula actualmente no se encuentra disponible");
+                
+            }
+
+            else{
+
             System.out.println(" El dato " + idPeliculaBuscar + " se encuentra en la posicion " + posicion);
 
             
             System.out.println("Ingresa el id del cliente a prestar la pelicula:");
 
            
-            
-
             mostrarClientes();
 
             buscarIdClienteAPrestar(matrizIdCliente);
+
+            }
+
+           
 
 
 
@@ -551,7 +561,16 @@ public class Memorabilia {
 
         if (posicion >= 0) {
 
-            System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
+
+            if (matrizClienteDisponibleParaPrestar[posicionCliente]==true) {
+
+                System.out.println("El cliente no se encuentra disponible para pedir prestamos");
+                
+            }
+
+            else{
+
+                 System.out.println(" El dato " + idClienteBuscar + " se encuentra en la posicion " + posicion);
             
  
 
@@ -570,10 +589,15 @@ public class Memorabilia {
             matrizClienteDisponibleParaPrestar[posicionCliente]=true;
             contadorPeliculasPrestadas++;
 
+               System.out.println("La pelicula fue prestada");
+
+
+            }
+
+           
 
             
-           System.out.println("La pelicula fue prestada");
-
+        
             
 
 
