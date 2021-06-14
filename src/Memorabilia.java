@@ -613,7 +613,7 @@ public class Memorabilia {
         System.out.println("\n____________________  PELICULAS PRESTADAS   __________________________________________________");
                 
         for (int j = 0; j < contadorPeliculasPrestadas ; j++ ) {
-                            System.out.println("\nidClientePrestamo: " + matrizIdClientePrestador[j] + ", idPeliculaPrestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias: " + diasPrestamoPeliculas[j]);
+                            System.out.println("\nNombre del cliente "+matrizNombreCliente[j]+" id Cliente " + matrizIdClientePrestador[j] + "nombre Pelicula" +matrizNombrePelicula[j] + ", idPeliculaPrestada: " + matrizIdPeliculaPrestada[j] + ", cantidad de dias: " + diasPrestamoPeliculas[j]);
 
         }
 
@@ -735,4 +735,5 @@ public class Memorabilia {
 
 
     }
+
 }
